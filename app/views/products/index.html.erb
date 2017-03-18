@@ -6,8 +6,38 @@
 
 <% @products.each do |product| %>
   <div class="product-group">
+
     <%= image_tag product.image %>
+    <br>
     <%= product.name %>
+    <br>
+    <%= product.description %>
+    <br>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    	<%= product.name %> 
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+	<div class="modal-content">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	    <h4 class="modal-title" id="myModalLabel"><%= product.name %></h4>
+	  </div>
+	  <div class="modal-body">
+            <%= button_to 'Edit', edit_product_path(product), method: "get", class: "btn btn-block btn-warning" %>
+            <br>
+            <%= button_to 'Delete', product_path(product), method: "delete", class: "btn btn-block btn-danger" %>
+	  </div>
+	  <div class="modal-footer">
+	    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	  </div>
+	</div>
+      </div>
+    </div>
   </div>
 <% end %>
 
