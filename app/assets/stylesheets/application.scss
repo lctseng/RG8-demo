@@ -1,0 +1,11 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.product-group {
+  border: solid 1px #000;
+  width: 40%;
+  height: 300px;
+  display: inline-block;
+  margin: 30px;
+}
+
